@@ -1,0 +1,30 @@
+{%  extends 'packages/base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block body %}
+ <h1> Choose your Ride..! </h1><br>
+        <div class="container">
+            <div class="row">
+
+
+         <ul>
+            {% for q in p.vehicles_set.all %}
+              <div class="col-md-3">
+             <li><font size="5"> Vehicle : {{ q.vname }}</font></li>
+             <li><font size="5"> Hours : {{ q.hours }}</font></li>
+             <li><font size="5"> Cost Per KM : {{ q.costperkm }}</font></li>
+             <img src ="{{ q.img }}">
+
+             <form action = "/conveyance/{{ p.id }}/renting/" method="post">
+             {% csrf_token %}
+             <input class="btn btn-success" style="width:100%;" type="submit" value="BOOK">
+             </form>
+                  <br><br>
+              </div>
+            {% endfor %}
+             <br><br><br><br><br><br>
+         </ul>
+            </div>
+            </div>
+            <br><br><br><br><br><br>
+{% endblock %}

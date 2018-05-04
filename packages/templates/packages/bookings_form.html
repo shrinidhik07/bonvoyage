@@ -1,0 +1,55 @@
+{% extends 'packages/base.html' %}
+{% block title %}Confirm Your Booking Here {% endblock %}
+<!--{% block bookings_active %}active{% endblock %} -->
+
+{% block body %}
+    <div class="container_fliud">
+
+        <div class="row">
+
+            <div class="col-sm-12 col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3> Confirm your Booking..</h3>
+                        <form class="form-horizontal"  role="form" action="" method="post">
+                            {% csrf_token %}
+                           <!-- {% include 'packages/form-template.html' %}
+                            {% for field in form %}
+                                     <div class="form-group">
+                                         <div class="col-sm-offset-2 col-sm-10">
+                                             <span class="text-danger small">{{ field.errors }}</span>
+                                         </div>
+                                         <label class="control-label col-sm-2"><i>{{ field.label_tag }}</i></label>
+                                    <div class="col-sm-10">{{ field }}</div>
+                                    </div>
+                            {% endfor %} -->
+                            <div class="form-group col-md-12">
+      <label for "name" class="col-form-label">Name:</label>
+      <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
+    </div>
+<div class="form-group col-md-12">
+      <label for "contact" class="col-form-label">Contact:</label>
+      <input type="text" class="form-control" placeholder="Enter Number" name="contact" required>
+    </div>
+<div class="form-group col-md-12">
+      <label for "start_date" class="col-form-label">Start Date:</label>
+      <input type="text" class="form-control" placeholder="Enter Date" name="start_date" required>
+    </div>
+<div class="form-group col-md-12">
+      <label for "email" class="col-form-label">Mail:</label>
+      <input type="text" class="form-control" placeholder="Enter Mail-id" name="email" required>
+    </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success" style="width:20%;">Submit</button>
+                                    <br><br>
+                                </div>
+                                <br><br><br><br><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

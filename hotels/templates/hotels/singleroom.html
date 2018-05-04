@@ -1,0 +1,57 @@
+{% extends 'packages/base.html' %}
+{% block title %}Confirm Your Hotel Booking Here {% endblock %}
+<!--{% block bookings_active %}active{% endblock %} -->
+
+{% block body %}
+ <div class="container_fliud">
+
+        <div class="row">
+
+            <div class="col-sm-12 col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1> Book A Hotel : </h1>
+                        <form class="form-horizontal"  role="form" action="" method="post">
+                            {% csrf_token %}
+                           <div class="form-group col-md-6">
+      <label for "bookintype" class="col-form-label">Booking type:</label>
+      <input type="text" class="form-control"  value="single room" name="bookintype" disabled>
+    </div>
+                          <!--  <div class="form-group col-md-6">
+      <label for "bookincost" class="col-form-label">Bookincost:</label>
+      <input type="text" class="form-control" value="1500" name="bookincost" disabled>
+    </div>-->
+                             <div class="form-group col-md-6">
+      <label for "name" class="col-form-label">Name:</label>
+      <input type="text" class="form-control" placeholder="enter name" name="name" required>
+    </div>
+                                  <div class="form-group col-md-6">
+      <label for "contact" class="col-form-label">Contact:</label>
+      <input type="text" class="form-control" placeholder="enter contact" name="contact" required>
+    </div>
+                                  <div class="form-group col-md-6">
+      <label for "email class="col-form-label">mail:</label>
+      <input type="text" class="form-control" placeholder="enter email-id" name="email" required>
+    </div>      <div class="form-group col-md-6">
+      <label for "Checkin" class="col-form-label">Check in:</label>
+      <input type="text" class="form-control" placeholder="enter check-in date" name="Checkin" required>
+    </div>
+                                  <div class="form-group col-md-6">
+      <label for "Checkout" class="col-form-label">checkout:</label>
+      <input type="text" class="form-control" placeholder="enter check-out date" name="Checkout" required>
+    </div>
+
+                             <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success" style="width:20%">Submit</button>
+                                    <br><br><br>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

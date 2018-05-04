@@ -1,0 +1,33 @@
+{% extends 'packages/base.html' %}
+<!--{% block albums_active %}active{% endblock %}-->
+
+{% block body %}
+<div class="pakages-container container-fluid">
+    <h1> Choose Any Package : </h1><br>
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-12">
+
+        </div>
+        {% if all_pcks %}
+            {% for q in all_pcks %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <img src="{{ q.img }}" class="img-responsive">
+
+                        <div class="caption">
+                            <h2>{{ q.pname }}</h2>
+                            <h4>Rs.{{ q.price }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{%url 'packages:details' q.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% endif %}
+        <br><br><br><br><br><br>
+    </div>
+    <br><br><br><br><br><br>
+{% endblock %}

@@ -1,0 +1,78 @@
+{%  extends 'packages/base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block body %}
+    <h1> Choose a hotel..</h1>
+    <ul>
+        {%  for q in p.accommodation_set.all %}
+            <li><font size="7">Hotel name : {{ q.hname }}</font></li>
+            <h1>Prices per night in rupees : </h1><br>
+        <li><font size="5"><a href="/hotels/{{q.hname}}/singleroom" ><button type="button" class="btn"> Single Room </button></a> {{ q.single }} ,<a href="/hotels/{{q.hname}}/doubleroom" ><button type="button" class="btn"> Double Room </button></a>  {{ q.double }}, <a href="/hotels/{{q.hname}}/multipleroom" ><button type="button" class="btn"> Multiple Room </button></a> {{ q.multiple }} , <a href="/hotels/{{q.hname}}/familyroom" ><button type="button" class="btn"> family Room </button></a>{{ q.family }} </font></li>
+            <!--<li><font size="5">Double Room : {{ q.double }}</font></li>
+            <li><font size="5">Multiple Room : {{ q.multiple }}</font></li>
+            <li><font size="5">Family Room : {{ q.family }}</font></li>--><br>
+            <img src ="{{ q.img1 }}">
+            <img src ="{{ q.img2 }}">
+            <img src ="{{ q.img3 }}">
+            <br>
+            <br>
+           <!-- <form action = "/hotels/{{ p.id }}/hbookings/" method="post">
+            {% csrf_token %}
+            <center>
+            <input class="btn btn-success" style="width:30%;" type="submit" value="BOOK NOW">
+            </center>
+            </form>-->
+            <br>
+        {% endfor %}
+    </ul>
+    <!--<ul>
+        {%  for q in p.accommodation_set.all %}
+            <li><font size="5">Hotel name:{{ q.hname }}</font></li>
+            <h3>Prices per night in rupees:</h3>
+            <li><font size="5">Single Room:{{ q.single }}</font></li>
+            <li><font size="5">Double Room:{{ q.double }}</font></li>
+            <li><font size="5">Multiple Room:{{ q.multiple }}</font></li>
+            <li><font size="5">Family Room:{{ q.family }}</font></li>
+            {% if sno %}
+                <li><font size="5">Single Room:{{ q.single }}</font></li>
+            {% else %}
+                 <h3>We dont have any single room..Sorry!</h3>
+            {% endif %}
+            {% if dno %}
+                <li><font size="5">Double Room:{{ q.double }}</font></li>
+            {% else %}
+                 <h3>We dont have any double room..Sorry!</h3>
+            {% endif %}
+            {% if mno %}
+                <li><font size="5">Multiple Room:{{ q.multiple }}</font></li>
+            {% else %}
+                 <h3>We dont have any multiple room..Sorry!</h3>
+            {% endif %}
+           {% if fno %}
+                <li><font size="5">Family Room:{{ q.family }}</font></li>
+            {% else %}
+                 <h3>We dont have any family rooms..Sorry!</h3>
+            {% endif %}
+        {% endfor %}
+    </ul> -->
+   <!-- <h1> Choose your Ride..! </h1>
+      <ul>
+        {% for q in p.conveyance_set.all %}
+           <li><font size="5"> Vehicles Available : {{ q.vehicles }}</font></li>
+           <li><font size="5"> Hours : {{ q.hours }}</font></li>
+           <li><font size="5"> Cost Per KM : {{ q.costperkm }}</font></li>
+           <img src ="{{ q.img }}">
+        {% endfor %}
+    </ul>-->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

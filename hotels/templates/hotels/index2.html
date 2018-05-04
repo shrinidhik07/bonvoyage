@@ -1,0 +1,16 @@
+{%  extends 'packages/base.html' %}
+
+{% block body %}
+    {% if all_cities %}
+        <h1> Choose your city : </h1>
+        <u1>
+            {% for p in all_cities %}
+                <li><font size="5"> <a href="{% url 'hotels:details2' p.id %}">{{ p.cname }}</a></font></li>
+
+            {% endfor %}
+            <br><br><br><br><br><br>
+        </u1>
+    {% else %}
+        <h3>We dont have any hotels</h3>
+    {% endif %}
+{% endblock %}

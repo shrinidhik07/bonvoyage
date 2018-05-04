@@ -1,0 +1,72 @@
+{% extends 'packages/base.html' %}
+
+{% block body %}
+<div class="container-fluid cityinfo-container">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'packages:details' p.id %}">
+                        {% if p.img %}
+                            <img src="{{ p.img }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ p.pname }} </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h1>Details</h1>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <font size="5">Name:{{ p.pname }}</font><br>
+                    <font size="5">Places:{{ p.places }}</font><br>
+                    <font size="5">Price:{{ p.price }}</font><br>
+                    <font size="5">Duration:{{ p.duration }}</font><br>
+                    <br>
+                    <h3>IMAGES : </h3><br>
+                    <img src ="{{ p.i1 }}"> <img src ="{{ p.i2 }}"> <img src ="{{ p.i3 }}"> <img src ="{{ p.i4 }}">
+                    <br>
+                    <h1>Here are the places of interest:</h1>
+                    <ul>
+                    {%  for q in p.cityinfo_set.all %}
+                        <li><font size="5">{{ q.attractions }}</font></li><br>
+                        <li><font size="5">Manager :{{ q.guide }}</font></li><br>
+                    {% endfor %}
+                    </ul>
+
+                    <form action = "/packages/{{ p.id }}/bookings/" method="post">
+                    {% csrf_token %}
+                     <center>
+                    <input class="btn btn-success" style="width:30%;" type="submit" value="CONFIRM">
+                       </center>
+                    </form>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

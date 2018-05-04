@@ -1,0 +1,64 @@
+{%  extends 'packages/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body %}
+
+<h1> THE BONVOYAGE </h1>
+<div class="container">
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <a href="{% url 'packages:index' %}">
+                <img src="/static/home/images/h2.jpg" alt="Lights" style="width:100%">
+                    <div class="caption">
+                        <p>Click to choose a Package</p>
+                    </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <a href="{% url 'hotels:index2' %}">
+                <img src="/static/home/images/h1.jpg" alt="Lights" style="width:100%">
+                    <div class="caption">
+                        <p>Click to choose a Hotel</p>
+                    </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <a href="{% url 'conveyance:index3' %}">
+                <img src="/static/home/images/c.jpg" alt="Lights" style="width:100%">
+                    <div class="caption">
+                        <p>Click to choose a Vehicle</p>
+                    </div>
+            </a>
+        </div>
+    </div>
+        <!--<div class="col-md-"3>
+        <div class="thumbnail">
+            <a href="#">
+                <img src="http://www.telone.co.zw/sites/default/files/styles/page_558x332/public/cloud_0.jpg" alt="Lights" style="width:100%">
+                    <div class="caption">
+                        <p>test</p>
+                    </div>
+            </a>
+        </div>
+    </div>-->
+</div>
+    </div>
+
+<p><font size="6"> The BONVOYAGE....To Travel Is To LIVE !!</font></p>
+<p><font size="5"> A perfect website to plan your vacations.</font></p>
+<p><font size="5"> We provide Tour Packages,Hotels and the Transport Facilities.</font></p>
+<p><font size="5"> Enjoy Our Services :)</font></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}
